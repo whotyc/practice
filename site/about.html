@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>О проекте — StudyHelperBot</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" href="images/logo_sq.png"/>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <img src="images/logo_sq.png" alt="StudyHelperBot logo">
+      <span>StudyHelperBot</span>
+    </a>
+    <nav class="menu">
+      <a href="index.html">Главная</a>
+      <a class="active" href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a href="journal.html">Журнал</a>
+      <a href="resources.html">Ресурсы</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h1>О проекте</h1>
+    <p class="subtitle">StudyHelperBot — Telegram-бот на Python, созданный для повышения личной продуктивности студентов.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <h2>Цель проекта</h2>
+    <p>
+      Главная цель проекта — разработка Telegram-бота, который помогает студенту управлять учебной нагрузкой:
+      фиксировать задания, сохранять заметки, хранить расписание и отслеживать прогресс выполнения задач.
+    </p>
+
+    <div class="screenshot-wrap">
+      <img src="images/screen2.png" alt="Скриншот главного меню бота" class="screenshot">
+    </div>
+
+    <h2>Основные функции</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📌 Задачи</h3>
+        <p>Добавление задач с дедлайном, просмотр списка, удаление и отметка выполненных.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 Заметки</h3>
+        <p>Создание заметок, хранение конспектов и быстрый поиск по тексту.</p>
+      </div>
+      <div class="card">
+        <h3>🗓 Расписание</h3>
+        <p>Добавление расписания пар по дням недели и просмотр списка.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Статистика</h3>
+        <p>Подсчёт выполненных задач и общий обзор продуктивности пользователя.</p>
+      </div>
+    </div>
+
+    <h2>Архитектура проекта</h2>
+    <p>
+      Бот реализован на Python с использованием библиотеки Aiogram 3. Данные хранятся в SQLite.
+      Проект разделён на модули: конфигурация, база данных, клавиатуры и вспомогательные функции.
+    </p>
+
+    <!-- Диаграмма архитектуры -->
+    <div class="schema-block">
+      <h4>Архитектура: поток данных</h4>
+      <div class="schema-flow">
+        <div class="schema-node">Telegram</div>
+        <span class="schema-arrow">→</span>
+        <div class="schema-node">Aiogram 3</div>
+        <span class="schema-arrow">→</span>
+        <div class="schema-node">Handlers</div>
+        <span class="schema-arrow">→</span>
+        <div class="schema-node">db.py</div>
+        <span class="schema-arrow">→</span>
+        <div class="schema-node">SQLite</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>Структура папки src/</h3>
+      <pre>src/
+ ├── main.py        # запуск и логика бота
+ ├── db.py          # работа с SQLite
+ ├── config.py      # токен и переменные окружения
+ ├── keyboards.py   # кнопки меню
+ ├── utils.py       # вспомогательные функции
+ └── requirements.txt</pre>
+    </div>
+
+    <h2>Почему выбран Telegram?</h2>
+    <p>
+      Telegram является удобной платформой, потому что он всегда под рукой, поддерживает быстрый доступ
+      к информации, уведомления и интерактивные кнопки. Бот не требует установки отдельного приложения
+      и подходит для повседневного использования.
+    </p>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo" href="index.html">
+        <img src="images/logo_sq.png" alt="logo">
+        <span>StudyHelperBot</span>
+      </a>
+      <p style="margin-top:10px;">Telegram-бот для задач, заметок и расписания.<br>Учебный проект, 2026.</p>
+    </div>
+    <div>
+      <h4>Навигация</h4>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a href="journal.html">Журнал</a>
+      <a href="resources.html">Ресурсы</a>
+    </div>
+    <div>
+      <h4>Авторы</h4>
+      <p>Попова Е.В.</p>
+      <p>Бородина Е.Е.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

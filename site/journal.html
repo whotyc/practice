@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StudyHelperBot — Журнал</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" href="images/logo_sq.png"/>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <img src="images/logo_sq.png" alt="StudyHelperBot logo">
+      <span>StudyHelperBot</span>
+    </a>
+    <nav class="menu">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a class="active" href="journal.html">Журнал</a>
+      <a href="resources.html">Ресурсы</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Журнал прогресса</h1>
+    <p class="subtitle">Подробное описание каждого этапа выполнения проектной практики — что делали, с чем столкнулись и что получилось.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="journal-list">
+
+      <!-- Пост 1 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 1. Создание репозитория и организация структуры</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-git">Git</span>
+            <span class="post-date">Неделя 1, день 1–2</span>
+          </div>
+        </div>
+        <p>
+          Работу начали с создания репозитория на GitHub по шаблону, предоставленному в задании.
+          Сразу настроили структуру папок: <code>docs/</code> — для документации, <code>reports/</code> — для отчётов,
+          <code>site/</code> — для будущего сайта, <code>src/</code> — для кода бота.
+        </p>
+        <p>
+          Оформили основной файл <code>README.md</code>: прописали название проекта, цель, список авторов
+          и предварительный план работы. Освоили базовые команды Git — <code>init</code>, <code>add</code>,
+          <code>commit</code>, <code>push</code> — и настроили связь локального репозитория с GitHub.
+        </p>
+
+        <!-- Скриншот структуры репозитория — портретная ориентация, ограничена по высоте -->
+        <div class="screenshot-wrap screenshot-portrait">
+          <img src="images/screen1.png" alt="Структура репозитория на GitHub" class="screenshot">
+        </div>
+      </div>
+
+      <!-- Пост 2 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 2. Изучение возможностей GitHub</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-git">Git</span>
+            <span class="post-date">Неделя 1, день 3–5</span>
+          </div>
+        </div>
+        <p>
+          Прежде чем переходить к коду, решили как следует разобраться с инструментами GitHub,
+          которые будем использовать на протяжении всей практики.
+          Изучили работу с Issues: как создавать задачи, назначать ответственных и закрывать их по мере выполнения.
+        </p>
+        <p>
+          Попрактиковались с ветками: создали ветку <code>dev</code> для разработки и настроили правило,
+          по которому код попадает в <code>main</code> только через pull request.
+          Разобрались с разметкой Markdown — именно на нём будет написана вся документация проекта.
+          Дополнительно изучили, как правильно оформлять коммиты и вести понятную историю изменений.
+        </p>
+      </div>
+
+      <!-- Пост 3 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 3. Начало разработки бота: настройка и база данных</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-bot">Бот</span>
+            <span class="post-date">Неделя 2, день 1–2</span>
+          </div>
+        </div>
+        <p>
+          Приступили к основной части проекта — разработке Telegram-бота.
+          Зарегистрировали бота через BotFather, получили токен и добавили его в файл конфигурации <code>config.py</code>.
+          Установили все необходимые зависимости: Aiogram 3, aiosqlite. Оформили <code>requirements.txt</code>.
+        </p>
+        <p>
+          Главной задачей первых дней стала база данных. В файле <code>db.py</code> реализовали
+          инициализацию SQLite и создание трёх таблиц: <code>tasks</code> (задачи с дедлайном и статусом),
+          <code>notes</code> (заметки пользователя) и <code>schedule</code> (расписание по дням недели).
+          Все операции с БД написали асинхронно, чтобы не блокировать работу бота.
+        </p>
+
+        <!-- Схема таблиц БД -->
+        <div class="schema-block">
+          <h4>Структура базы данных SQLite</h4>
+          <div class="schema-flow">
+            <div class="schema-node">tasks<br><small style="color:var(--muted);font-weight:400;">id, user_id, text, deadline, done</small></div>
+            <span class="schema-arrow" style="margin: 0 4px;">  </span>
+            <div class="schema-node">notes<br><small style="color:var(--muted);font-weight:400;">id, user_id, text, created_at</small></div>
+            <span class="schema-arrow" style="margin: 0 4px;">  </span>
+            <div class="schema-node">schedule<br><small style="color:var(--muted);font-weight:400;">id, user_id, day, subject, time</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Пост 4 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 4. Реализация функционала бота</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-bot">Бот</span>
+            <span class="post-date">Неделя 2, день 3–5</span>
+          </div>
+        </div>
+        <p>
+          Когда база данных была готова, перешли к написанию обработчиков команд в <code>main.py</code>.
+          Реализовали команду <code>/start</code> с приветственным сообщением и главным меню через
+          inline-кнопки (файл <code>keyboards.py</code>).
+        </p>
+        <p>
+          Постепенно добавили все ключевые функции:
+          добавление задачи с дедлайном (<code>/add_task</code>), просмотр списка задач (<code>/tasks</code>),
+          отметка задачи как выполненной, удаление. Аналогично — работа с заметками: создание, список, удаление.
+          Расписание реализовали по дням недели с возможностью добавлять и просматривать пары.
+          В конце добавили команду <code>/stats</code>, которая показывает количество выполненных задач и общую статистику.
+        </p>
+        <p>
+          Всё тестировалось вживую в Telegram по мере написания каждой команды.
+          Несколько раз ловили ошибки в асинхронных запросах к БД и потратили время на их отладку.
+        </p>
+
+        <!-- Видео с демонстрацией бота — клик запускает/ставит на паузу -->
+        <div class="video-wrap" id="videoWrap">
+          <video id="botVideo" src="video/video.mp4" preload="metadata"></video>
+          <div class="video-overlay" id="videoOverlay">
+            <div class="play-btn-big" id="playBtn">▶</div>
+          </div>
+          <div class="video-caption">🎬 Демонстрация работы бота — задачи, заметки, расписание, статистика</div>
+        </div>
+        <script>
+          (function(){
+            const video = document.getElementById('botVideo');
+            const overlay = document.getElementById('videoOverlay');
+            const btn = document.getElementById('playBtn');
+            function toggle(){
+              if(video.paused){ video.play(); overlay.classList.add('hidden'); }
+              else { video.pause(); overlay.classList.remove('hidden'); btn.textContent='▶'; }
+            }
+            overlay.addEventListener('click', toggle);
+            video.addEventListener('click', toggle);
+            video.addEventListener('ended', function(){ overlay.classList.remove('hidden'); btn.textContent='↺'; });
+          })();
+        </script>
+      </div>
+
+      <!-- Пост 5 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 5. Отладка и оформление кода</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-bot">Бот</span>
+            <span class="post-date">Неделя 3, день 1</span>
+          </div>
+        </div>
+        <p>
+          После того как основной функционал заработал, занялись чисткой и оформлением кода.
+          Разбили логику по модулям: убрали вспомогательные функции в <code>utils.py</code>,
+          привели именование переменных к единому стилю, добавили комментарии к ключевым блокам.
+        </p>
+        <p>
+          Прогнали сценарии использования ещё раз: проверили, как бот реагирует на некорректный ввод
+          (например, если пользователь отправил пустое сообщение вместо текста задачи).
+          Добавили базовую обработку ошибок через <code>try/except</code> и понятные сообщения для пользователя.
+          После этого финальная версия бота была закоммичена в ветку <code>main</code>.
+        </p>
+      </div>
+
+      <!-- Пост 6 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 6. Разработка сайта проекта</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-site">Сайт</span>
+            <span class="post-date">Неделя 3, день 2–4</span>
+          </div>
+        </div>
+        <p>
+          Параллельно с финальной отладкой бота начали делать сайт. По заданию это статический
+          многостраничный сайт на HTML и CSS, размещённый в папке <code>site/</code> репозитория.
+          Определились со структурой: главная, о проекте, участники, журнал, ресурсы.
+        </p>
+        <p>
+          Сначала набросали общий макет в голове и сразу написали CSS-переменные для цветов, отступов и радиусов —
+          чтобы стиль был единым на всех страницах. Тёмная цветовая схема выбрана намеренно:
+          она соответствует «технической» тематике и хорошо читается.
+          Верстали от хедера к футеру, сначала главную страницу, затем по очереди остальные.
+        </p>
+        <p>
+          Адаптивность (mobile-first) добавили через медиазапрос на 850px: колонки перестраиваются
+          в одну, кнопки и заголовки уменьшаются. Проверили вёрстку в мобильном режиме браузера.
+        </p>
+
+        <div class="screenshot-wrap">
+          <img src="images/screen3.png" alt="Главная страница сайта StudyHelperBot" class="screenshot">
+        </div>
+      </div>
+
+      <!-- Пост 7 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 7. Документация и финальное оформление</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-docs">Документация</span>
+            <span class="post-date">Неделя 3, день 5</span>
+          </div>
+        </div>
+        <p>
+          Последним этапом стало оформление документации. Бородина Екатерина подготовила все необходимые
+          Markdown-файлы в папке <code>docs/</code>: инструкцию по установке и запуску бота,
+          описание структуры репозитория, а также журнал прогресса в текстовом виде.
+        </p>
+        <p>
+          Итоговый отчёт по практике был оформлен в формате DOCX и сконвертирован в PDF.
+          Все материалы добавлены в репозиторий в папку <code>reports/</code>.
+          После финальной проверки все изменения были запушены в <code>main</code>,
+          и репозиторий был подготовлен к сдаче.
+        </p>
+        <div class="info-box">
+          <h3>Итог практики</h3>
+          <p style="margin-bottom:0; color:var(--muted);">
+            ✅ Работающий Telegram-бот (Python + Aiogram 3 + SQLite)<br>
+            ✅ Статический сайт (HTML + CSS, 5 страниц)<br>
+            ✅ Документация в Markdown (инструкция, описание, журнал)<br>
+            ✅ Итоговый отчёт (DOCX + PDF)<br>
+            ✅ Git-репозиторий с историей коммитов
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo" href="index.html">
+        <img src="images/logo_sq.png" alt="logo">
+        <span>StudyHelperBot</span>
+      </a>
+      <p style="margin-top:10px;">Telegram-бот для задач, заметок и расписания.<br>Учебный проект, 2026.</p>
+    </div>
+    <div>
+      <h4>Навигация</h4>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a href="journal.html">Журнал</a>
+      <a href="resources.html">Ресурсы</a>
+    </div>
+    <div>
+      <h4>Авторы</h4>
+      <p>Попова Е.В.</p>
+      <p>Бородина Е.Е.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
