@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StudyHelperBot — Журнал</title>
+  <title>Steamleaf — Дневник разработки</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="icon" type="image/png" href="images/logo_sq.png"/>
+  <link rel="icon" type="image/png" href="images/logo.png"/>
 </head>
 <body>
 
 <header class="header">
   <div class="container nav">
     <a class="logo" href="index.html">
-      <img src="images/logo_sq.png" alt="StudyHelperBot logo">
-      <span>StudyHelperBot</span>
+      <img src="images/logo.png" alt="Steamleaf logo">
+      <span>Steamleaf</span>
     </a>
     <nav class="menu">
       <a href="index.html">Главная</a>
-      <a href="about.html">О проекте</a>
-      <a href="team.html">Участники</a>
-      <a class="active" href="journal.html">Журнал</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a class="active" href="journal.html">Дневник</a>
       <a href="resources.html">Ресурсы</a>
     </nav>
   </div>
@@ -27,8 +27,8 @@
 
 <section class="page-header">
   <div class="container">
-    <h1>Журнал прогресса</h1>
-    <p class="subtitle">Подробное описание каждого этапа выполнения проектной практики — что делали, с чем столкнулись и что получилось.</p>
+    <h1>Дневник разработки</h1>
+    <p class="subtitle">Подробное описание каждого этапа создания Steamleaf — что делали, с чем столкнулись и что получилось.</p>
   </div>
 </section>
 
@@ -36,127 +36,193 @@
   <div class="container">
     <div class="journal-list">
 
-      <!-- Пост 1 -->
+      <!-- Этап 1 -->
       <div class="post">
         <div class="post-header">
-          <h2>Этап 1. Создание репозитория и организация структуры</h2>
+          <h2>Этап 1. Создание пустого проекта Unity</h2>
           <div class="post-meta">
-            <span class="post-tag tag-git">Git</span>
+            <span class="post-tag tag-code">Unity</span>
             <span class="post-date">Неделя 1, день 1–2</span>
           </div>
         </div>
         <p>
-          Работу начали с создания репозитория на GitHub по шаблону, предоставленному в задании.
-          Сразу настроили структуру папок: <code>docs/</code> — для документации, <code>reports/</code> — для отчётов,
-          <code>site/</code> — для будущего сайта, <code>src/</code> — для кода бота.
+          Начали с создания нового проекта в Unity Hub — выбрали шаблон 2D (URP).
+          Настроили базовую структуру папок внутри Assets:
+          <code>Scenes/</code>, <code>Scripts/</code>, <code>Sprites/</code>, <code>Tilemaps/</code>, <code>Audio/</code>, <code>Prefabs/</code>.
         </p>
         <p>
-          Оформили основной файл <code>README.md</code>: прописали название проекта, цель, список авторов
-          и предварительный план работы. Освоили базовые команды Git — <code>init</code>, <code>add</code>,
-          <code>commit</code>, <code>push</code> — и настроили связь локального репозитория с GitHub.
+          Создали первую сцену <code>MainMenu</code> и тестовую сцену <code>GameWorld</code>.
+          Подключили систему контроля версий: инициализировали Git-репозиторий,
+          добавили <code>.gitignore</code> для Unity (исключили папки Library, Temp, Logs).
+          Убедились, что проект корректно открывается у обоих участников команды.
         </p>
 
-        <!-- Скриншот структуры репозитория — портретная ориентация, ограничена по высоте -->
-        <div class="screenshot-wrap screenshot-portrait">
-          <img src="images/screen1.png" alt="Структура репозитория на GitHub" class="screenshot">
+        <div class="info-box">
+          <h3>Структура Assets/</h3>
+          <pre>Assets/
+ ├── Scenes/         # игровые сцены
+ ├── Scripts/        # C#-скрипты
+ ├── Sprites/        # спрайты и анимации
+ ├── Tilemaps/       # тайлы карты города
+ ├── Audio/          # музыка и звуки
+ └── Prefabs/        # готовые игровые объекты</pre>
         </div>
       </div>
 
-      <!-- Пост 2 -->
+      <!-- Этап 2 -->
       <div class="post">
         <div class="post-header">
-          <h2>Этап 2. Изучение возможностей GitHub</h2>
+          <h2>Этап 2. Проработка NPC и концепт-арт персонажей</h2>
           <div class="post-meta">
-            <span class="post-tag tag-git">Git</span>
+            <span class="post-tag tag-design">Дизайн</span>
             <span class="post-date">Неделя 1, день 3–5</span>
           </div>
         </div>
         <p>
-          Прежде чем переходить к коду, решили как следует разобраться с инструментами GitHub,
-          которые будем использовать на протяжении всей практики.
-          Изучили работу с Issues: как создавать задачи, назначать ответственных и закрывать их по мере выполнения.
+          Прежде чем приступить к коду, продумали всех жителей города. Определили три основных
+          типа NPC, с которыми игрок будет взаимодействовать чаще всего, и прописали их характеры,
+          поведение и визуальный образ.
         </p>
         <p>
-          Попрактиковались с ветками: создали ветку <code>dev</code> для разработки и настроили правило,
-          по которому код попадает в <code>main</code> только через pull request.
-          Разобрались с разметкой Markdown — именно на нём будет написана вся документация проекта.
-          Дополнительно изучили, как правильно оформлять коммиты и вести понятную историю изменений.
+          <strong>Спешащий офисный работник</strong> — всегда куда-то торопится, листовки берёт
+          редко и только если игрок подойдёт точно в нужный момент.
+          <strong>Пенсионерка</strong> — гуляет медленно, охотно вступает в разговор,
+          может дать небольшое задание.
+          <strong>Студент</strong> — берёт листовку почти всегда, иногда задаёт вопросы
+          и становится источником цепочки заданий.
         </p>
+        <p>
+          Для каждого персонажа Бородина Екатерина нарисовала концептуальные наброски:
+          силуэт, характерные детали одежды, выражение лица. Наброски стали основой для
+          последующей пиксельной анимации в Unity.
+        </p>
+
+        <div class="screenshot-wrap">
+          <img src="images/photo1.png" alt="Концепт-арт персонажей Steamleaf" class="screenshot">
+        </div>
       </div>
 
-      <!-- Пост 3 -->
+      <!-- Этап 3 -->
       <div class="post">
         <div class="post-header">
-          <h2>Этап 3. Начало разработки бота: настройка и база данных</h2>
+          <h2>Этап 3. Дизайн меню, города и настроек</h2>
           <div class="post-meta">
-            <span class="post-tag tag-bot">Бот</span>
+            <span class="post-tag tag-design">Дизайн</span>
             <span class="post-date">Неделя 2, день 1–2</span>
           </div>
         </div>
         <p>
-          Приступили к основной части проекта — разработке Telegram-бота.
-          Зарегистрировали бота через BotFather, получили токен и добавили его в файл конфигурации <code>config.py</code>.
-          Установили все необходимые зависимости: Aiogram 3, aiosqlite. Оформили <code>requirements.txt</code>.
+          Разработали визуальный стиль всех экранов игры. Главное меню выполнено в тёмных тёплых тонах:
+          на фоне — силуэт ночного города с мерцающими окнами, поверх — название игры и три кнопки
+          (Начать, Настройки, Выход). Шрифт — рукописный, под стать атмосфере.
         </p>
         <p>
-          Главной задачей первых дней стала база данных. В файле <code>db.py</code> реализовали
-          инициализацию SQLite и создание трёх таблиц: <code>tasks</code> (задачи с дедлайном и статусом),
-          <code>notes</code> (заметки пользователя) и <code>schedule</code> (расписание по дням недели).
-          Все операции с БД написали асинхронно, чтобы не блокировать работу бота.
+          Для карты города продумали районы: <em>Центральная улица</em> (много прохожих, днём),
+          <em>Рыночная площадь</em> (торговцы, задания), <em>Жилые кварталы</em> (тихо, NPC-пенсионеры).
+          Каждый район имеет свою цветовую температуру и набор тайлов.
+        </p>
+        <p>
+          Экран настроек включает регуляторы громкости музыки и звуков, переключатель полноэкранного режима
+          и выбор разрешения. Всё реализовано через Unity UI (Canvas + Slider + Toggle).
         </p>
 
-        <!-- Схема таблиц БД -->
+        <div class="screenshot-wrap">
+          <img src="images/MainMenu.png" alt="Главное меню Steamleaf" class="screenshot">
+        </div>
+      </div>
+
+      <!-- Этап 4 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 4. Система денег и репутации</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-code">C#</span>
+            <span class="post-date">Неделя 2, день 3</span>
+          </div>
+        </div>
+        <p>
+          Написали скрипт <code>EconomySystem.cs</code> — центральный менеджер ресурсов игрока.
+          Деньги начисляются за каждую успешно розданную листовку; сумма зависит от типа листовки
+          и района города. Репутация — отдельный параметр от 0 до 100, влияющий на то,
+          как NPC реагируют на приближение игрока.
+        </p>
+        <p>
+          При высокой репутации прохожие сами останавливаются и приветствуют героя.
+          При низкой — отворачиваются или уходят быстрее. Репутация падает, если игрок
+          долго игнорирует задания или грубит в диалогах.
+          Оба параметра выведены в HUD и сохраняются через <code>PlayerPrefs</code>.
+        </p>
+
         <div class="schema-block">
-          <h4>Структура базы данных SQLite</h4>
+          <h4>Логика экономики</h4>
           <div class="schema-flow">
-            <div class="schema-node">tasks<br><small style="color:var(--muted);font-weight:400;">id, user_id, text, deadline, done</small></div>
-            <span class="schema-arrow" style="margin: 0 4px;">  </span>
-            <div class="schema-node">notes<br><small style="color:var(--muted);font-weight:400;">id, user_id, text, created_at</small></div>
-            <span class="schema-arrow" style="margin: 0 4px;">  </span>
-            <div class="schema-node">schedule<br><small style="color:var(--muted);font-weight:400;">id, user_id, day, subject, time</small></div>
+            <div class="schema-node">Листовка принята</div>
+            <span class="schema-arrow">→</span>
+            <div class="schema-node">+Деньги</div>
+            <span class="schema-arrow">+</span>
+            <div class="schema-node">+Репутация</div>
+            <span class="schema-arrow">→</span>
+            <div class="schema-node">UIManager.Refresh()</div>
           </div>
         </div>
       </div>
 
-      <!-- Пост 4 -->
+      <!-- Этап 5 -->
       <div class="post">
         <div class="post-header">
-          <h2>Этап 4. Реализация функционала бота</h2>
+          <h2>Этап 5. Смена дня и ночи</h2>
           <div class="post-meta">
-            <span class="post-tag tag-bot">Бот</span>
-            <span class="post-date">Неделя 2, день 3–5</span>
+            <span class="post-tag tag-code">C#</span>
+            <span class="post-date">Неделя 2, день 4</span>
           </div>
         </div>
         <p>
-          Когда база данных была готова, перешли к написанию обработчиков команд в <code>main.py</code>.
-          Реализовали команду <code>/start</code> с приветственным сообщением и главным меню через
-          inline-кнопки (файл <code>keyboards.py</code>).
+          Реализовали суточный цикл через скрипт <code>DayNightCycle.cs</code>.
+          Время идёт в ускоренном режиме: один игровой час равен двум минутам реального времени.
+          Цвет глобального освещения (Global Light 2D) плавно меняется от тёплого дневного
+          до холодного ночного через <code>Color.Lerp</code>.
         </p>
         <p>
-          Постепенно добавили все ключевые функции:
-          добавление задачи с дедлайном (<code>/add_task</code>), просмотр списка задач (<code>/tasks</code>),
-          отметка задачи как выполненной, удаление. Аналогично — работа с заметками: создание, список, удаление.
-          Расписание реализовали по дням недели с возможностью добавлять и просматривать пары.
-          В конце добавили команду <code>/stats</code>, которая показывает количество выполненных задач и общую статистику.
+          Днём на улицах много прохожих — спавнер активен на полную мощность.
+          После заката количество NPC резко сокращается, появляются другие типы персонажей.
+          Некоторые задания доступны только ночью, другие — только утром.
+          Это создаёт ненавязчивый ритм игрового дня.
+        </p>
+      </div>
+
+      <!-- Этап 6 -->
+      <div class="post">
+        <div class="post-header">
+          <h2>Этап 6. Взаимодействие с персонажами</h2>
+          <div class="post-meta">
+            <span class="post-tag tag-code">C#</span>
+            <span class="post-date">Неделя 2, день 5</span>
+          </div>
+        </div>
+        <p>
+          Написали систему взаимодействия: при приближении к NPC появляется подсказка <kbd>E</kbd>,
+          игрок нажимает — открывается диалоговое окно. Диалоги хранятся в JSON-файлах,
+          скрипт <code>NPCDialogue.cs</code> парсит их и отображает реплики с анимацией печатающегося текста.
         </p>
         <p>
-          Всё тестировалось вживую в Telegram по мере написания каждой команды.
-          Несколько раз ловили ошибки в асинхронных запросах к БД и потратили время на их отладку.
+          У каждого NPC есть состояния: <em>Idle</em> (гуляет), <em>Aware</em> (заметил игрока),
+          <em>Talking</em> (в диалоге), <em>Done</em> (уходит). Переключение между состояниями
+          реализовано через простой конечный автомат. Реакция на листовку — всплывающая иконка
+          над головой: ✅ принял, 🙄 отказал, 💬 есть задание.
         </p>
 
-        <!-- Видео с демонстрацией бота — клик запускает/ставит на паузу -->
         <div class="video-wrap" id="videoWrap">
-          <video id="botVideo" src="video/video.mp4" preload="metadata"></video>
+          <video id="gameVideo" src="video/video.mp4" preload="metadata"></video>
           <div class="video-overlay" id="videoOverlay">
             <div class="play-btn-big" id="playBtn">▶</div>
           </div>
-          <div class="video-caption">🎬 Демонстрация работы бота — задачи, заметки, расписание, статистика</div>
+          <div class="video-caption">🎬 Демонстрация взаимодействия игрока с NPC и системы диалогов</div>
         </div>
         <script>
           (function(){
-            const video = document.getElementById('botVideo');
-            const overlay = document.getElementById('videoOverlay');
-            const btn = document.getElementById('playBtn');
+            var video   = document.getElementById('gameVideo');
+            var overlay = document.getElementById('videoOverlay');
+            var btn     = document.getElementById('playBtn');
             function toggle(){
               if(video.paused){ video.play(); overlay.classList.add('hidden'); }
               else { video.pause(); overlay.classList.remove('hidden'); btn.textContent='▶'; }
@@ -168,86 +234,71 @@
         </script>
       </div>
 
-      <!-- Пост 5 -->
+      <!-- Этап 7 -->
       <div class="post">
         <div class="post-header">
-          <h2>Этап 5. Отладка и оформление кода</h2>
+          <h2>Этап 7. Сценарий: задания от NPC</h2>
           <div class="post-meta">
-            <span class="post-tag tag-bot">Бот</span>
+            <span class="post-tag tag-game">Геймдизайн</span>
             <span class="post-date">Неделя 3, день 1</span>
           </div>
         </div>
         <p>
-          После того как основной функционал заработал, занялись чисткой и оформлением кода.
-          Разбили логику по модулям: убрали вспомогательные функции в <code>utils.py</code>,
-          привели именование переменных к единому стилю, добавили комментарии к ключевым блокам.
+          Прописали первую часть сценария — цепочку заданий, которые жители города дают игроку.
+          Пенсионерка Нина просит разнести листовки по трём конкретным адресам — это обучающий квест,
+          знакомящий с механикой навигации по карте. Студент Макс предлагает распространить листовки
+          о концерте до заката — задание с таймером.
         </p>
         <p>
-          Прогнали сценарии использования ещё раз: проверили, как бот реагирует на некорректный ввод
-          (например, если пользователь отправил пустое сообщение вместо текста задачи).
-          Добавили базовую обработку ошибок через <code>try/except</code> и понятные сообщения для пользователя.
-          После этого финальная версия бота была закоммичена в ветку <code>main</code>.
+          Каждое задание хранится в <code>QuestData.json</code> и подгружается через <code>QuestSystem.cs</code>.
+          У квеста есть условие начала (репутация выше порога), цель (количество/место/время)
+          и награда (деньги + репутация). Выполненные задания отмечаются в дневнике игрока —
+          отдельном UI-экране.
         </p>
+
+        <div class="info-box">
+          <h3>Первые квесты в игре</h3>
+          <p style="margin-bottom:0; color:var(--muted);">
+            📬 <strong>«Нинины листовки»</strong> — доставить по трём адресам, обучающий квест<br>
+            🎵 <strong>«До заката»</strong> — успеть раздать 20 листовок о концерте за 10 мин.<br>
+            🔍 <strong>«Найди Антона»</strong> — разыскать конкретного NPC в городе<br>
+            🌙 <strong>«Ночная смена»</strong> — раздать листовки ночью, повышенная награда
+          </p>
+        </div>
       </div>
 
-      <!-- Пост 6 -->
+      <!-- Этап 8 -->
       <div class="post">
         <div class="post-header">
-          <h2>Этап 6. Разработка сайта проекта</h2>
+          <h2>Этап 8. Квартира игрока и открытый мир</h2>
           <div class="post-meta">
-            <span class="post-tag tag-site">Сайт</span>
+            <span class="post-tag tag-game">Геймдизайн</span>
             <span class="post-date">Неделя 3, день 2–4</span>
           </div>
         </div>
         <p>
-          Параллельно с финальной отладкой бота начали делать сайт. По заданию это статический
-          многостраничный сайт на HTML и CSS, размещённый в папке <code>site/</code> репозитория.
-          Определились со структурой: главная, о проекте, участники, журнал, ресурсы.
+          Создали квартиру персонажа — отдельную сцену, куда игрок возвращается в конце каждой смены.
+          Здесь можно посмотреть статистику дня, проверить дневник заданий, поспать (перемотать время)
+          и потратить заработанные деньги на улучшения — новую сумку (больше листовок за смену)
+          или тёплую куртку (замедляет усталость ночью).
         </p>
         <p>
-          Сначала набросали общий макет в голове и сразу написали CSS-переменные для цветов, отступов и радиусов —
-          чтобы стиль был единым на всех страницах. Тёмная цветовая схема выбрана намеренно:
-          она соответствует «технической» тематике и хорошо читается.
-          Верстали от хедера к футеру, сначала главную страницу, затем по очереди остальные.
-        </p>
-        <p>
-          Адаптивность (mobile-first) добавили через медиазапрос на 850px: колонки перестраиваются
-          в одну, кнопки и заголовки уменьшаются. Проверили вёрстку в мобильном режиме браузера.
+          Параллельно расширили карту города: добавили три района, соединённых улицами.
+          У каждого района свой тайлсет, набор NPC и атмосфера.
+          Переходы между локациями реализованы через триггерные зоны и <code>SceneManager.LoadScene()</code>
+          с сохранением состояния игрока через <code>DontDestroyOnLoad</code>.
         </p>
 
-        <div class="screenshot-wrap">
-          <img src="images/screen3.png" alt="Главная страница сайта StudyHelperBot" class="screenshot">
-        </div>
-      </div>
-
-      <!-- Пост 7 -->
-      <div class="post">
-        <div class="post-header">
-          <h2>Этап 7. Документация и финальное оформление</h2>
-          <div class="post-meta">
-            <span class="post-tag tag-docs">Документация</span>
-            <span class="post-date">Неделя 3, день 5</span>
-          </div>
-        </div>
-        <p>
-          Последним этапом стало оформление документации. Бородина Екатерина подготовила все необходимые
-          Markdown-файлы в папке <code>docs/</code>: инструкцию по установке и запуску бота,
-          описание структуры репозитория, а также журнал прогресса в текстовом виде.
-        </p>
-        <p>
-          Итоговый отчёт по практике был оформлен в формате DOCX и сконвертирован в PDF.
-          Все материалы добавлены в репозиторий в папку <code>reports/</code>.
-          После финальной проверки все изменения были запушены в <code>main</code>,
-          и репозиторий был подготовлен к сдаче.
-        </p>
         <div class="info-box">
           <h3>Итог практики</h3>
           <p style="margin-bottom:0; color:var(--muted);">
-            ✅ Работающий Telegram-бот (Python + Aiogram 3 + SQLite)<br>
+            ✅ Работающий прототип игры (Unity + C#)<br>
+            ✅ Три района города с тайловыми картами<br>
+            ✅ Система NPC с диалогами и заданиями<br>
+            ✅ Механики денег, репутации и смены дня/ночи<br>
+            ✅ Квартира игрока и магазин улучшений<br>
             ✅ Статический сайт (HTML + CSS, 5 страниц)<br>
-            ✅ Документация в Markdown (инструкция, описание, журнал)<br>
-            ✅ Итоговый отчёт (DOCX + PDF)<br>
-            ✅ Git-репозиторий с историей коммитов
+            ✅ Документация Markdown + отчёт DOCX/PDF
           </p>
         </div>
       </div>
@@ -260,17 +311,16 @@
   <div class="container footer-grid">
     <div>
       <a class="logo" href="index.html">
-        <img src="images/logo_sq.png" alt="logo">
-        <span>StudyHelperBot</span>
+        <img src="images/logo.png" alt="Steamleaf logo">
+        <span>Steamleaf</span>
       </a>
-      <p style="margin-top:10px;">Telegram-бот для задач, заметок и расписания.<br>Учебный проект, 2026.</p>
     </div>
     <div>
       <h4>Навигация</h4>
       <a href="index.html">Главная</a>
-      <a href="about.html">О проекте</a>
-      <a href="team.html">Участники</a>
-      <a href="journal.html">Журнал</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
       <a href="resources.html">Ресурсы</a>
     </div>
     <div>
