@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>StudyHelperBot — Главная</title>
+  <title>Steamleaf — Главная</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="icon" type="image/png" href="images/logo_sq.png"/>
+  <link rel="icon" type="image/png" href="images/logo.png"/>
 </head>
 <body>
 
 <header class="header">
   <div class="container nav">
     <a class="logo" href="index.html">
-      <img src="images/logo_sq.png" alt="StudyHelperBot logo">
-      <span>StudyHelperBot</span>
+      <img src="images/logo.png" alt="Steamleaf logo">
+      <span>Steamleaf</span>
     </a>
     <nav class="menu">
       <a class="active" href="index.html">Главная</a>
-      <a href="about.html">О проекте</a>
-      <a href="team.html">Участники</a>
-      <a href="journal.html">Журнал</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
       <a href="resources.html">Ресурсы</a>
     </nav>
   </div>
@@ -28,53 +28,53 @@
 <section class="hero">
   <div class="container hero-grid">
     <div class="hero-text">
-      <h1>Telegram-бот для учёбы и продуктивности</h1>
+      <h1>Симулятор раздачи <em>листовок</em></h1>
       <p class="subtitle">
-        StudyHelperBot — проект на Python, который помогает студентам вести задачи, хранить заметки
-        и управлять расписанием прямо в Telegram.
+        Steamleaf — инди-игра, в которой вы играете за уличного промоутера в туманном городе.
+        Раздавайте листовки, убеждайте прохожих, зарабатывайте репутацию — и, возможно, изменитесь сами.
       </p>
       <div class="hero-buttons">
-        <a class="btn primary" href="about.html">Описание проекта</a>
-        <a class="btn secondary" href="journal.html">Журнал работы</a>
+        <a class="btn primary" href="about.html">Об игре</a>
+        <a class="btn secondary" href="journal.html">Дневник разработки</a>
       </div>
       <div class="hero-badges">
-        <span class="badge">Python</span>
-        <span class="badge">Aiogram 3</span>
-        <span class="badge">SQLite</span>
+        <span class="badge">Unity</span>
+        <span class="badge">C#</span>
+        <span class="badge">2D</span>
         <span class="badge">HTML/CSS</span>
-        <span class="badge">Git + Markdown</span>
+        <span class="badge">Git</span>
       </div>
     </div>
 
     <div class="hero-card">
-      <h3>Функции бота</h3>
+      <h3>Механики игры</h3>
       <ul>
-        <li>📌 Список задач и дедлайны</li>
-        <li>🧠 Заметки и быстрый поиск</li>
-        <li>📅 Расписание занятий</li>
-        <li>📊 Статистика выполненных задач</li>
-        <li>📚 Хранение данных в SQLite</li>
+        <li>📄 Раздача листовок прохожим</li>
+        <li>💰 Система денег и репутации</li>
+        <li>🌙 Смена дня и ночи</li>
+        <li>💬 Взаимодействие с NPC и задания</li>
+        <li>🏠 Квартира и открытый мир</li>
       </ul>
-      <p class="small-note">Проект разработан в рамках проектной (учебной) практики, 2026.</p>
+      <p class="small-note">Учебный игровой проект, разработан в рамках практики, 2026.</p>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2>Зачем нужен StudyHelperBot?</h2>
+    <h2>Что такое Steamleaf?</h2>
     <div class="cards">
       <div class="card">
-        <h3>📌 Организация задач</h3>
-        <p>Бот помогает не забывать о дедлайнах, хранит список задач и позволяет быстро отмечать выполненные.</p>
+        <h3>📄 Листовки и город</h3>
+        <p>Вы выходите на улицы Стимлифа с пачкой листовок. Каждый прохожий — отдельная история: кто-то возьмёт сам, кто-то убежит.</p>
       </div>
       <div class="card">
-        <h3>🧠 Хранение заметок</h3>
-        <p>Можно сохранять конспекты и идеи прямо в Telegram, без сторонних приложений.</p>
+        <h3>🌫 Живой мир</h3>
+        <p>Туманный город меняется со временем суток. NPC живут по своему расписанию, дают задания и реагируют на вашу репутацию.</p>
       </div>
       <div class="card">
-        <h3>📅 Расписание</h3>
-        <p>Расписание занятий хранится в базе данных, его можно редактировать и просматривать в любой момент.</p>
+        <h3>📊 Прогресс</h3>
+        <p>Деньги и репутация определяют, что вам доступно. Выполняйте задания горожан, чтобы открыть новые возможности.</p>
       </div>
     </div>
   </div>
@@ -85,16 +85,16 @@
     <h2>Технологии проекта</h2>
     <div class="cards">
       <div class="card">
-        <h3>⚙️ Backend</h3>
-        <p>Python + Aiogram 3, асинхронная обработка команд и сообщений.</p>
+        <h3>⚙️ Движок</h3>
+        <p>Unity + C#. Вся игровая логика, AI прохожих, системы денег и репутации написаны на C#.</p>
       </div>
       <div class="card">
-        <h3>📚 База данных</h3>
-        <p>SQLite — хранение задач, заметок и расписания пользователей.</p>
+        <h3>🎨 Графика</h3>
+        <p>2D-спрайты и тайловые карты, собранные в Unity Tilemap. Дизайн персонажей — авторские наброски.</p>
       </div>
       <div class="card">
         <h3>📄 Документация</h3>
-        <p>Markdown, Git, журнал прогресса и руководство по запуску проекта.</p>
+        <p>Markdown, Git, дневник разработки и руководство по запуску проекта.</p>
       </div>
     </div>
   </div>
@@ -104,17 +104,16 @@
   <div class="container footer-grid">
     <div>
       <a class="logo" href="index.html">
-        <img src="images/logo_sq.png" alt="logo">
-        <span>StudyHelperBot</span>
+        <img src="images/logo.png" alt="Steamleaf logo">
+        <span>Steamleaf</span>
       </a>
-      <p style="margin-top:10px;">Telegram-бот для задач, заметок и расписания.<br>Учебный проект, 2026.</p>
     </div>
     <div>
       <h4>Навигация</h4>
       <a href="index.html">Главная</a>
-      <a href="about.html">О проекте</a>
-      <a href="team.html">Участники</a>
-      <a href="journal.html">Журнал</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
       <a href="resources.html">Ресурсы</a>
     </div>
     <div>

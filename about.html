@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>О проекте — StudyHelperBot</title>
+  <title>Об игре — Steamleaf</title>
   <link rel="stylesheet" href="css/style.css"/>
-  <link rel="icon" type="image/png" href="images/logo_sq.png"/>
+  <link rel="icon" type="image/png" href="images/logo.png"/>
 </head>
 <body>
 
 <header class="header">
   <div class="container nav">
     <a class="logo" href="index.html">
-      <img src="images/logo_sq.png" alt="StudyHelperBot logo">
-      <span>StudyHelperBot</span>
+      <img src="images/logo.png" alt="Steamleaf logo">
+      <span>Steamleaf</span>
     </a>
     <nav class="menu">
       <a href="index.html">Главная</a>
-      <a class="active" href="about.html">О проекте</a>
-      <a href="team.html">Участники</a>
-      <a href="journal.html">Журнал</a>
+      <a class="active" href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
       <a href="resources.html">Ресурсы</a>
     </nav>
   </div>
@@ -27,82 +27,86 @@
 
 <section class="page-header">
   <div class="container">
-    <h1>О проекте</h1>
-    <p class="subtitle">StudyHelperBot — Telegram-бот на Python, созданный для повышения личной продуктивности студентов.</p>
+    <h1>Об игре</h1>
+    <p class="subtitle">Steamleaf — 2D-симулятор уличного промоутера на Unity + C#, созданный для освоения основ геймдева.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
 
-    <h2>Цель проекта</h2>
+    <h2>Идея проекта</h2>
     <p>
-      Главная цель проекта — разработка Telegram-бота, который помогает студенту управлять учебной нагрузкой:
-      фиксировать задания, сохранять заметки, хранить расписание и отслеживать прогресс выполнения задач.
-    </p>
+      Главная цель — разработать небольшую, но полноценную игру с нуля: со своим городом, живыми персонажами,
+      игровым циклом и нарративом. Тема — работа промоутером в туманном городе.
 
     <div class="screenshot-wrap">
-      <img src="images/screen2.png" alt="Скриншот главного меню бота" class="screenshot">
+      <img src="images/MainMenu.png" alt="Главное меню Steamleaf" class="screenshot">
     </div>
 
-    <h2>Основные функции</h2>
+    <h2>Основные механики</h2>
     <div class="cards">
       <div class="card">
-        <h3>📌 Задачи</h3>
-        <p>Добавление задач с дедлайном, просмотр списка, удаление и отметка выполненных.</p>
+        <h3>📄 Раздача листовок</h3>
+        <p>Игрок подходит к прохожим и инициирует взаимодействие. Каждый NPC имеет свою вероятность принять листовку в зависимости от типа и репутации игрока.</p>
       </div>
       <div class="card">
-        <h3>🧠 Заметки</h3>
-        <p>Создание заметок, хранение конспектов и быстрый поиск по тексту.</p>
+        <h3>💰 Деньги и репутация</h3>
+        <p>За каждую принятую листовку начисляются деньги. Репутация растёт от выполнения заданий NPC и падает от грубости или провалов.</p>
       </div>
       <div class="card">
-        <h3>🗓 Расписание</h3>
-        <p>Добавление расписания пар по дням недели и просмотр списка.</p>
+        <h3>🌙 Смена дня и ночи</h3>
+        <p>Город живёт по суточному циклу: днём улицы многолюдны, ночью — опасны и пусты. NPC меняют поведение в зависимости от времени.</p>
       </div>
       <div class="card">
-        <h3>📊 Статистика</h3>
-        <p>Подсчёт выполненных задач и общий обзор продуктивности пользователя.</p>
+        <h3>💬 Задания NPC</h3>
+        <p>Жители дают небольшие квесты: доставить листовку конкретному человеку, распространить информацию в районе, найти кого-то в городе.</p>
       </div>
     </div>
 
-    <h2>Архитектура проекта</h2>
+    <h2>Архитектура игры</h2>
     <p>
-      Бот реализован на Python с использованием библиотеки Aiogram 3. Данные хранятся в SQLite.
-      Проект разделён на модули: конфигурация, база данных, клавиатуры и вспомогательные функции.
+      Игра написана на C# в Unity. Проект разбит на скрипты по зонам ответственности:
+      управление игроком, логика NPC, игровые системы (деньги, репутация, время) и UI.
     </p>
 
-    <!-- Диаграмма архитектуры -->
     <div class="schema-block">
       <h4>Архитектура: поток данных</h4>
       <div class="schema-flow">
-        <div class="schema-node">Telegram</div>
+        <div class="schema-node">PlayerController</div>
         <span class="schema-arrow">→</span>
-        <div class="schema-node">Aiogram 3</div>
+        <div class="schema-node">InteractionSystem</div>
         <span class="schema-arrow">→</span>
-        <div class="schema-node">Handlers</div>
+        <div class="schema-node">NPCBehaviour</div>
         <span class="schema-arrow">→</span>
-        <div class="schema-node">db.py</div>
+        <div class="schema-node">GameManager</div>
         <span class="schema-arrow">→</span>
-        <div class="schema-node">SQLite</div>
+        <div class="schema-node">UIManager</div>
       </div>
     </div>
 
     <div class="info-box">
-      <h3>Структура папки src/</h3>
-      <pre>src/
- ├── main.py        # запуск и логика бота
- ├── db.py          # работа с SQLite
- ├── config.py      # токен и переменные окружения
- ├── keyboards.py   # кнопки меню
- ├── utils.py       # вспомогательные функции
- └── requirements.txt</pre>
+      <h3>Структура Scripts/</h3>
+      <pre>Scripts/
+ ├── Player/
+ │   ├── PlayerController.cs   # движение и анимация
+ │   └── PlayerStats.cs        # деньги, репутация, усталость
+ ├── NPC/
+ │   ├── NPCBehaviour.cs       # состояния и маршруты
+ │   └── NPCDialogue.cs        # диалоги и задания
+ ├── Systems/
+ │   ├── DayNightCycle.cs      # смена времени суток
+ │   ├── QuestSystem.cs        # система заданий
+ │   └── EconomySystem.cs      # деньги и репутация
+ └── UI/
+     └── UIManager.cs          # HUD, меню, диалоги</pre>
     </div>
 
-    <h2>Почему выбран Telegram?</h2>
+    <h2>Почему симулятор листовок?</h2>
     <p>
-      Telegram является удобной платформой, потому что он всегда под рукой, поддерживает быстрый доступ
-      к информации, уведомления и интерактивные кнопки. Бот не требует установки отдельного приложения
-      и подходит для повседневного использования.
+      Механика проста для реализации, но богата на нюансы: поведение толпы, репутация, смена времени суток,
+      нарративные задания — всё это интересные задачи для начинающего разработчика.
+      Тема позволяет сосредоточиться на игровом дизайне и атмосфере, не перегружая проект сложной физикой или боевой системой.
     </p>
 
   </div>
@@ -112,17 +116,16 @@
   <div class="container footer-grid">
     <div>
       <a class="logo" href="index.html">
-        <img src="images/logo_sq.png" alt="logo">
-        <span>StudyHelperBot</span>
+        <img src="images/logo.png" alt="Steamleaf logo">
+        <span>Steamleaf</span>
       </a>
-      <p style="margin-top:10px;">Telegram-бот для задач, заметок и расписания.<br>Учебный проект, 2026.</p>
     </div>
     <div>
       <h4>Навигация</h4>
       <a href="index.html">Главная</a>
-      <a href="about.html">О проекте</a>
-      <a href="team.html">Участники</a>
-      <a href="journal.html">Журнал</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
       <a href="resources.html">Ресурсы</a>
     </div>
     <div>
