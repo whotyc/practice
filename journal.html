@@ -211,27 +211,7 @@
           над головой: ✅ принял, 🙄 отказал, 💬 есть задание.
         </p>
 
-        <div class="video-wrap" id="videoWrap">
-          <video id="gameVideo" src="video/video.mp4" preload="metadata"></video>
-          <div class="video-overlay" id="videoOverlay">
-            <div class="play-btn-big" id="playBtn">▶</div>
-          </div>
-          <div class="video-caption">🎬 Демонстрация взаимодействия игрока с NPC и системы диалогов</div>
-        </div>
-        <script>
-          (function(){
-            var video   = document.getElementById('gameVideo');
-            var overlay = document.getElementById('videoOverlay');
-            var btn     = document.getElementById('playBtn');
-            function toggle(){
-              if(video.paused){ video.play(); overlay.classList.add('hidden'); }
-              else { video.pause(); overlay.classList.remove('hidden'); btn.textContent='▶'; }
-            }
-            overlay.addEventListener('click', toggle);
-            video.addEventListener('click', toggle);
-            video.addEventListener('ended', function(){ overlay.classList.remove('hidden'); btn.textContent='↺'; });
-          })();
-        </script>
+
       </div>
 
       <!-- Этап 7 -->
