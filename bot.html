@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Steamleaf — Бот</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" type="image/png" href="images/logo.png"/>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <img src="images/logo.png" alt="Steamleaf logo">
+      <span>Steamleaf</span>
+    </a>
+    <nav class="menu">
+      <a href="index.html">Главная</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
+      <a href="resources.html">Ресурсы</a>
+      <a class="active" href="bot.html">Бот</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Telegram-бот проекта</h1>
+    <p class="subtitle">StudyHelperBot — вспомогательный инструмент для студентов: задачи, заметки и расписание прямо в Telegram.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <h2>О боте</h2>
+    <p>
+      В рамках учебной практики, параллельно с разработкой игры Steamleaf, был создан Telegram-бот
+      на Python с использованием библиотеки Aiogram 3. Бот помогает студентам организовать учебный процесс:
+      хранить задачи с дедлайнами, вести заметки и управлять расписанием — всё в одном месте,
+      без лишних приложений.
+    </p>
+    <p>
+      Данные хранятся в локальной базе SQLite. Бот работает асинхронно и поддерживает
+      inline-кнопки для удобной навигации по меню.
+    </p>
+
+    <!-- Видео с демонстрацией бота -->
+    <div class="video-wrap" id="videoWrap">
+      <video id="botVideo" src="video/video1.mp4" preload="metadata"></video>
+      <div class="video-overlay" id="videoOverlay">
+        <div class="play-btn-big" id="playBtn">▶</div>
+      </div>
+      <div class="video-caption">🎬 Демонстрация работы бота — задачи, заметки, расписание, статистика</div>
+    </div>
+    <script>
+      (function(){
+        const video   = document.getElementById('botVideo');
+        const overlay = document.getElementById('videoOverlay');
+        const btn     = document.getElementById('playBtn');
+        function toggle(){
+          if(video.paused){ video.play(); overlay.classList.add('hidden'); }
+          else { video.pause(); overlay.classList.remove('hidden'); btn.textContent = '▶'; }
+        }
+        overlay.addEventListener('click', toggle);
+        video.addEventListener('click', toggle);
+        video.addEventListener('ended', function(){ overlay.classList.remove('hidden'); btn.textContent = '↺'; });
+      })();
+    </script>
+
+    <h2 style="margin-top: 40px;">Функционал</h2>
+    <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card">
+        <h3>📌 Задачи</h3>
+        <p>Добавление задач с дедлайном, просмотр списка, отметка выполненных и удаление. Бот напоминает о приближающихся дедлайнах.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 Заметки</h3>
+        <p>Создание текстовых заметок, хранение конспектов и быстрый поиск по ключевому слову.</p>
+      </div>
+      <div class="card">
+        <h3>🗓 Расписание</h3>
+        <p>Добавление пар и занятий по дням недели. Просмотр расписания на конкретный день одной командой.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Статистика</h3>
+        <p>Подсчёт выполненных и невыполненных задач, общий обзор продуктивности за всё время использования.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 40px;">Скриншоты</h2>
+    <p>Приветственное сообщение бота и пример диалога с ним.</p>
+
+    <div class="bot-screens" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="bot-screen-item">
+        <div class="screenshot-wrap">
+          <img src="images/bot1.png" alt="Приветственное сообщение бота" class="screenshot">
+        </div>
+        <p class="screen-caption">Приветственное сообщение — краткое описание возможностей бота</p>
+      </div>
+      <div class="bot-screen-item">
+        <div class="screenshot-wrap">
+          <img src="images/bot2.png" alt="Диалог с ботом" class="screenshot">
+        </div>
+        <p class="screen-caption">Пример диалога — взаимодействие с командами бота</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top: 32px;">
+      <h3>Стек технологий</h3>
+      <p style="margin-bottom: 0; color: var(--muted);">
+        🐍 Python 3.11 — язык разработки<br>
+        ⚡ Aiogram 3 — асинхронный фреймворк для Telegram-ботов<br>
+        🗄 SQLite + aiosqlite — база данных<br>
+        🔑 python-dotenv — хранение токена в переменных окружения
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="Steamleaf logo">
+        <span>Steamleaf</span>
+      </a>
+    </div>
+    <div>
+      <h4>Навигация</h4>
+      <a href="index.html">Главная</a>
+      <a href="about.html">Об игре</a>
+      <a href="team.html">Команда</a>
+      <a href="journal.html">Дневник</a>
+      <a href="resources.html">Ресурсы</a>
+      <a href="bot.html">Бот</a>
+    </div>
+    <div>
+      <h4>Авторы</h4>
+      <p>Попова Е.В.</p>
+      <p>Бородина Е.Е.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
